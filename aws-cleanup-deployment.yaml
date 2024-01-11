@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aws-cleanup-deployment
+  labels:
+    app: aws-cleanup
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: aws-cleanup
+  template:
+    metadata:
+      labels:
+        app: aws-cleanup
+    spec:
+      containers:
+      - name: aws-cleanup
+        image: your-docker-registry/aws-cleanup-image:latest # Replace with your image path
+        imagePullPolicy: Always
+        env:
+          - name: AWS_ACCESS_KEY_ID
+            valueFrom:
+              secretKeyRef:
+                name: aws-credentials
+                key: access-key
+          - name: AWS_SECRET_ACCESS_KEY
+            valueFrom:
+              secretKeyRef:
+                name: aws-credentials
+                key: secret-key
+          - name: AWS_DEFAULT_REGION
+            value: us-west-2 # Replace with your AWS region
+        # You can define args or command based on how your Docker container and script are set up
+        # args: ["--ecr_days_old", "30", "--ebs_snapshot_days_old", "30"]
+      restartPolicy: Always

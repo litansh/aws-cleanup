@@ -1,0 +1,27 @@
+{
+    "environments": {
+        "ort2": {
+            "region": "us-west-2",
+            "ecr_days_old": 30,
+            "ebs_snapshot_days_old": 30,
+            "nat_gateway_threshold": 1000,
+            "ec2_cpu_threshold": 20,
+            "ec2_memory_threshold": 20,
+            "delete_ecr": false,
+            "delete_ebs_snapshots": false,
+            "delete_nat_gateways": false,
+            "delete_ec2_instances": false,
+            "label_policies": {
+                "databases": {
+                    "delete_threshold": 0,
+                    "resize_threshold": 90
+                },
+                "eks-worker": {
+                    "delete_threshold": 0,
+                    "resize_threshold": 0
+                }
+            },
+            "skip_resize_types": ["databases", "eks-worker"]
+        }
+    }
+}

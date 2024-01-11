@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: aws-cleanup-config
+data:
+  ecr_days_old: "30"
+  ebs_snapshot_days_old: "30"
