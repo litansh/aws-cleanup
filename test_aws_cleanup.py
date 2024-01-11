@@ -1,6 +1,6 @@
 import unittest
 from unittest.mock import Mock, patch
-from your_aws_cleanup_script import (
+from aws_cleanup import (
     load_configuration,
     list_unattached_ebs_volumes,
     list_unused_ecr_repositories,
