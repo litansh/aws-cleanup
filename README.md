@@ -38,6 +38,3 @@ Contributions are welcome! If you have suggestions or improvements, please feel 
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
----
-
-Feel free to customize this description to fit your repository's specific details and style.
